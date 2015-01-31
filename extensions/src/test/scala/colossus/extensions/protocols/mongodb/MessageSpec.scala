@@ -40,7 +40,7 @@ class MessageSpec extends FlatSpec with Matchers {
   }
 
   it should "construct correct GetMoreMessage" in {
-    val cursorID = 1
+    val cursorID = 1L
     val numberToReturn = 0
 
     val actual = GetMoreMessage(fullCollectionName, cursorID, numberToReturn)
