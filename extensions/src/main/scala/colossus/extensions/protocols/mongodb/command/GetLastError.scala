@@ -10,10 +10,10 @@ case class GetLastError(databaseName: String,
                         fsync: Option[Boolean] = None,
                         wtimeout: Option[Int] = None) extends Command {
   override val command: BsonDocument = {
-    ("getLastError" := 1) +
-      ("j" := j) +
-      ("w" := w) +
-      ("fsync" := fsync) +
+    ("getLastError" := 1) ~
+      ("j" := j) ~
+      ("w" := w) ~
+      ("fsync" := fsync) ~
       ("wtimeout" := wtimeout)
   }
 }

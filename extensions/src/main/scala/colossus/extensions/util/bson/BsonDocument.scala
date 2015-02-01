@@ -17,9 +17,9 @@ case class BsonDocument(elements: BsonElement*) extends BsonValue {
       .result()
   }
 
-  def +(element: BsonElement): BsonDocument = BsonDocument(elements :+ element)
+  def ~(element: BsonElement): BsonDocument = BsonDocument(elements :+ element)
 
-  def +(element: Option[BsonElement]): BsonDocument = element match {
+  def ~(element: Option[BsonElement]): BsonDocument = element match {
     case Some(element) => BsonDocument(elements :+ element)
     case None => this
   }

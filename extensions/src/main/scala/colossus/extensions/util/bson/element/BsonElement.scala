@@ -28,10 +28,10 @@ trait BsonElement extends Writable {
       other.asInstanceOf[BsonElement].value == this.value
   }
 
-  def +(that: BsonElement): BsonDocument = BsonDocument(this, that)
+  def ~(that: BsonElement): BsonDocument = BsonDocument(this, that)
 
-  def +(that: Option[BsonElement]): BsonDocument = that match {
-    case Some(that) => this + that
+  def ~(that: Option[BsonElement]): BsonDocument = that match {
+    case Some(that) => this ~ that
     case None => BsonDocument(this)
   }
 

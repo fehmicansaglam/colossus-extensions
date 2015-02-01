@@ -15,15 +15,15 @@ case class FindAndModify(databaseName: String,
                          upsert: Boolean = false) extends Command {
 
   override val command: BsonDocument = {
-    ("findAndModify" := collectionName) +
-      ("query" := query) +
-      ("sort" := sort) +
+    ("findAndModify" := collectionName) ~
+      ("query" := query) ~
+      ("sort" := sort) ~
       (removeOrUpdate match {
         case Left(remove) => "remove" := remove
         case Right(update) => "update" := update
-      }) +
-      ("new" := returnNew) +
-      fields.map(fields => "fields" := document(fields.map(_ := 1): _*)) +
+      }) ~
+      ("new" := returnNew) ~
+      fields.map(fields => "fields" := document(fields.map(_ := 1): _*)) ~
       ("upsert" := upsert)
   }
 }

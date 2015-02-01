@@ -10,9 +10,9 @@ case class Count(databaseName: String,
                  limit: Option[Int] = None,
                  skip: Option[Int] = None) extends Command {
   override val command: BsonDocument = {
-    ("count" := collectionName) +
-      ("query" := query) +
-      ("limit" := limit) +
+    ("count" := collectionName) ~
+      ("query" := query) ~
+      ("limit" := limit) ~
       ("skip" := skip)
   }
 }

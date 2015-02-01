@@ -11,9 +11,9 @@ case class Insert(databaseName: String,
                   writeConcern: Option[BsonDocument] = None) extends Command {
 
   override val command: BsonDocument = {
-    ("insert" := collectionName) +
-      ("documents" := array(documents: _*)) +
-      ("ordered" := ordered) +
+    ("insert" := collectionName) ~
+      ("documents" := array(documents: _*)) ~
+      ("ordered" := ordered) ~
       writeConcern.map("writeConcern" := _)
   }
 }

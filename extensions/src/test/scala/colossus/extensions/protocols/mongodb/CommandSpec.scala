@@ -26,7 +26,7 @@ class CommandSpec extends FlatSpec with Matchers {
         .putByte(0)
         .putInt(0) // numberToSkip
         .putInt(1) // numberToReturn
-        .append((("count" := collectionName) + ("query" := query)).encode())
+        .append((("count" := collectionName) ~ ("query" := query)).encode())
         .result()
 
       ByteString.newBuilder
@@ -53,7 +53,7 @@ class CommandSpec extends FlatSpec with Matchers {
         .putByte(0)
         .putInt(0) // numberToSkip
         .putInt(1) // numberToReturn
-        .append((("delete" := collectionName) + ("deletes" := array(deletes: _*))).encode())
+        .append((("delete" := collectionName) ~ ("deletes" := array(deletes: _*))).encode())
         .result()
 
       ByteString.newBuilder
@@ -81,10 +81,10 @@ class CommandSpec extends FlatSpec with Matchers {
         .putInt(0) // numberToSkip
         .putInt(1) // numberToReturn
         .append((
-        ("findAndModify" := collectionName) +
-          ("query" := query) +
-          ("remove" := true) +
-          ("new" := false) +
+        ("findAndModify" := collectionName) ~
+          ("query" := query) ~
+          ("remove" := true) ~
+          ("new" := false) ~
           ("upsert" := false))
         .encode())
         .result()
@@ -138,7 +138,7 @@ class CommandSpec extends FlatSpec with Matchers {
         .putByte(0)
         .putInt(0) // numberToSkip
         .putInt(1) // numberToReturn
-        .append((("insert" := collectionName) + ("documents" := array(documents: _*)) + ("ordered" := true)).encode())
+        .append((("insert" := collectionName) ~ ("documents" := array(documents: _*)) ~ ("ordered" := true)).encode())
         .result()
 
       ByteString.newBuilder
