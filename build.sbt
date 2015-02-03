@@ -24,15 +24,15 @@ lazy val commonSettings = Seq(
 ) ++ publishSettings
 
 lazy val root = project.in(file("."))
-  .aggregate(extensions, examples)
+  .aggregate(mongo, examples)
   .settings(commonSettings: _*)
   .settings(publishArtifact := false)
 
-lazy val extensions = project.in(file("extensions"))
+lazy val mongo = project.in(file("mongo"))
   .settings(commonSettings: _*)
 
 lazy val examples = project.in(file("examples"))
-  .dependsOn(extensions)
+  .dependsOn(mongo)
   .settings(commonSettings: _*)
   .settings(publishArtifact := false)
 

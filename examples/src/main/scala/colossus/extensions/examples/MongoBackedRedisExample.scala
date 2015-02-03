@@ -5,9 +5,9 @@ import java.net.InetSocketAddress
 import akka.util.ByteString
 import colossus.IOSystem
 import colossus.core.ServerRef
-import colossus.extensions.protocols.mongodb.Mongo
-import colossus.extensions.protocols.mongodb.command.FindAndModify
-import colossus.extensions.protocols.mongodb.message.{Message, QueryMessage, Reply}
+import colossus.extensions.protocols.mongo.Mongo
+import colossus.extensions.protocols.mongo.command.FindAndModify
+import colossus.extensions.protocols.mongo.message.{Message, QueryMessage, Reply}
 import colossus.extensions.util.bson.BsonDsl._
 import colossus.extensions.util.bson.Implicits._
 import colossus.protocols.redis._
