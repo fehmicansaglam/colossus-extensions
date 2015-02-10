@@ -19,7 +19,7 @@ Current version matrix is below:
 
 | colossus-mongo                   | colossus                     |
 |----------------------------------|------------------------------|
-| 0.6.0.0-SNAPSHOT                 | 0.6.0-M1                     |
+| 0.6.0.0-SNAPSHOT                 | 0.6.0-M2                     |
 
 **Note: Only available for scala 2.11.**
 
